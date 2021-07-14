@@ -25,7 +25,7 @@ int main() {
     }
     vector<string> keyVec;
     vector<int> numVec;
-    map<string, vector<string>> dataMap;
+    map<string, vector<string> > dataMap;
     string keyword;
     int num;
 
