@@ -26,6 +26,7 @@ int main() {
 
     vector<string> keyVec;
     vector<int> numVec;
+    vector<string> infoVec;
     map<string, vector<string> > dataMap;
     string keyword;
     int num;
@@ -35,12 +36,34 @@ int main() {
       keyVec.push_back(keyword);
       numVec.push_back(num);
     }
+    string result;
+    while (!myfile.eof()) {
+      //cin.ignore();
+      getline(myfile, result);
+      infoVec.push_back(result);
+    }
     int vecSize = keyVec.size();
+    
     for (int i = 0; i < vecSize; i++) {
       if(keyword == searchW) {
+          int count = numVec[i];
+          if(count == 1) {
+            cout << "Here is " << count << " result:" << endl;
+          }
+          else{
+            cout << "Here are " << count << " results:" << endl;
+          }
+          int sum = 0;               // sum of results before the result that match the keyword
+          for(int j = 1; j <= i; j++){
+            sum += numVec[j];
+          }
+          for(int k = 0; k < count; k++){
+            cout << infoVec[sum+count-1] << endl;
+          }
           break;
       }
-      else if(keyword != searchW && i == vecSize -1){
+      else if(keyword != searchW && i == vecSize -1){          // if keyword doesn't equal to searchW
+                                                               // and the for loop has reached end
           cout << "Could not find the result that match this keyword" << endl;
           cout << "Do you want to provide some information about this keyword?" << endl;
           cout << "Yes (Y) or No (N) " << endl;
@@ -59,7 +82,6 @@ int main() {
             string information;
             cin.ignore();
             getline(cin, information);                       // extract a whole of information
-            vector<string> infoVec;
             infoVec.push_back(information);                  // put information in a vector
             dataMap.insert(make_pair(searchW, infoVec));     // map the search word to the information vector
             ofstream out("keyword.txt");                     // open keyword.txt
@@ -70,8 +92,9 @@ int main() {
               out << numVec[i];
               out << " ";
             }
-            for(int i = 0; i < infoVec.size(); i++){
+            for(int i = 1; i < infoVec.size(); i++){
               out2 << infoVec[i];
+              out2 << endl;
             }
             out.close();
             out2.close();
