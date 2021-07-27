@@ -1,1 +1,1 @@
-king 1 queen 1 
+queen 1 queen 1 mum 1 

@@ -7,14 +7,16 @@
 using namespace std;
 
 int main() {
-    cout << "Welcome to GitfishYu's Search Engine" << endl;          // start search engine
-    cout << "Please type the keyword you want to search:" << endl;   // type in keyword
-    string searchW;
-    cin >> searchW;
+    vector<string> keyVec;
+    vector<int> numVec;
+    vector<string> infoVec;
+    map<string, vector<string> > dataMap;
+
     ifstream myfile;                                                 // read file
     ifstream myfile2;
     myfile.open("database.txt");                                     // open file
     myfile2.open("keyword.txt");
+
     if(!myfile) {                                                    // if file could not be opened
         cerr << "Error: database.txt could not be opened" << endl;
         exit(1);
@@ -24,10 +26,6 @@ int main() {
         exit(1);
     }
 
-    vector<string> keyVec;
-    vector<int> numVec;
-    vector<string> infoVec;
-    map<string, vector<string> > dataMap;
     string keyword;
     int num;
     while (!myfile2.eof()) {                                          // keep reading until end-of-file
@@ -35,6 +33,7 @@ int main() {
       myfile2 >> num;
       keyVec.push_back(keyword);
       numVec.push_back(num);
+      cout << "result: " << keyword << endl;
     }
     string result;
     while (!myfile.eof()) {
@@ -43,7 +42,12 @@ int main() {
       infoVec.push_back(result);
     }
     int vecSize = keyVec.size();
-    
+  
+    cout << "Welcome to GitfishYu's Search Engine" << endl;          // start search engine
+    cout << "Please type the keyword you want to search:" << endl;   // type in keyword
+    string searchW;
+    cin >> searchW;
+
     for (int i = 0; i < vecSize; i++) {
       if(keyword == searchW) {
           int count = numVec[i];
@@ -92,9 +96,12 @@ int main() {
               out << numVec[i];
               out << " ";
             }
+            for(int i = 1;i < keyVec.size(); i++){
+              cout << "test: " << keyVec[i] << endl;
+            }
             for(int i = 1; i < infoVec.size(); i++){
-              out2 << infoVec[i];
               out2 << endl;
+              out2 << infoVec[i];
             }
             out.close();
             out2.close();
