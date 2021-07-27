@@ -16,3 +16,9 @@ check the existing keyword in the keyword.txt, if it's there, update database.tx
 It's able to access the existed word in the keyword.txt and output its corresponding result from database.txt. 
 ### Need to solve
 Add a result to a new keyword will replace all the data in the database.txt
+
+*July 27th, 2021:*
+### Work
+It's successful to add new information instead of replacing exsited information in database.txt. 
+### Need to solve
+After adding three different keywords, there should have threee different words in the keyword.txt. However, it's currently has one word repeat twice.
