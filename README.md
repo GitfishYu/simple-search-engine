@@ -22,3 +22,9 @@ Add a result to a new keyword will replace all the data in the database.txt
 It's successful to add new information instead of replacing exsited information in database.txt. 
 ### Need to solve
 After adding three different keywords, there should have threee different words in the keyword.txt. However, it's currently has one word repeat twice.
+
+*July 28th, 2021:*
+### Work
+1. fix the problem of adding keyword without duplicating.
+2. 
+### Need to solve

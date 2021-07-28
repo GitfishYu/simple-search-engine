@@ -26,15 +26,18 @@ int main() {
         exit(1);
     }
 
-    string keyword;
     int num;
+    keyVec.push_back("");
     while (!myfile2.eof()) {                                          // keep reading until end-of-file
+      string keyword;
       myfile2 >> keyword;
       myfile2 >> num;
-      keyVec.push_back(keyword);
+      if(keyword != ""){
+        keyVec.push_back(keyword);
+      }
       numVec.push_back(num);
-      cout << "result: " << keyword << endl;
     }
+
     string result;
     while (!myfile.eof()) {
       //cin.ignore();
@@ -49,7 +52,7 @@ int main() {
     cin >> searchW;
 
     for (int i = 0; i < vecSize; i++) {
-      if(keyword == searchW) {
+      if(keyVec[i] == searchW) {
           int count = numVec[i];
           if(count == 1) {
             cout << "Here is " << count << " result:" << endl;
@@ -66,7 +69,7 @@ int main() {
           }
           break;
       }
-      else if(keyword != searchW && i == vecSize -1){          // if keyword doesn't equal to searchW
+      else if(keyVec[i] != searchW && i == vecSize -1){          // if keyword doesn't equal to searchW
                                                                // and the for loop has reached end
           cout << "Could not find the result that match this keyword" << endl;
           cout << "Do you want to provide some information about this keyword?" << endl;
@@ -96,7 +99,7 @@ int main() {
               out << numVec[i];
               out << " ";
             }
-            for(int i = 1;i < keyVec.size(); i++){
+            for(int i = 0;i < keyVec.size(); i++){
               cout << "test: " << keyVec[i] << endl;
             }
             for(int i = 1; i < infoVec.size(); i++){
