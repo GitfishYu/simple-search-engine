@@ -25,6 +25,13 @@ After adding three different keywords, there should have threee different words 
 
 *July 28th, 2021:*
 ### Work
-1. fix the problem of adding keyword without duplicating.
-2. 
+fix the problem of adding keyword to the keyword.tx without duplicating. 
+fix the problem that reading keyword and information dowesn't work correctly (reason: some thing wrong with the size/index of vectors)
 ### Need to solve
+New information doesn't appear in the database.txt
+
+*July 29th, 2021:*
+### Work
+update the number of information of a keyword and add information to the databasse.txt based on the index (resolved method: use list to copy the vector, insert element then copy back to vector)
+### Need to solve
+try to beautify the interface (new knowledge that didn't learn yet)
