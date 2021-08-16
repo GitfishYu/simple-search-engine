@@ -35,3 +35,7 @@ New information doesn't appear in the database.txt
 update the number of information of a keyword and add information to the databasse.txt based on the index (resolved method: use list to copy the vector, insert element then copy back to vector)
 ### Need to solve
 try to beautify the interface (new knowledge that didn't learn yet)
+
+*August 16th, 2021:*
+### Work
+start working on building network which can allow multiple clients connect with server
